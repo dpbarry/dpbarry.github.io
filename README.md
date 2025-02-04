@@ -1,2 +1,1 @@
-# dpbarry.github.io
-Portfolio site
+dpbarry.github.io/
