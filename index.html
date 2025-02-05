@@ -7,17 +7,197 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1, interactive-widget=resizes-content">
 
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+
+        
         <style>
-         a {
-           font-size: 3rem;
+         html, body { padding: 0;}
+         body {
+           font-family: Fraunces;
+           font-size: clamp(1rem, 2.8vmax, 1.5rem);
          }
 
+         #projects {
+           display: flex;
+           width: 100%;
+           justify-content: center;
+           flex-wrap: wrap;
+           gap: 4vmax;
+
+           position: relative;
+           top: 5vh;
+         }
+         
+         .card {
+           min-width: 40vw;
+           max-width: 40vw;
+           max-height: 60vh;
+           min-height: 60vh;
+           display: flex;
+           position: relative;
+           border: 1px solid #bbb;
+           box-shadow: 0 1px 5px #00000022;
+           
+           border-radius: 5px;
+           transform-style: preserve-3d;
+           background-color: #eee;
+
+           perspective: 1000px;
+
+           transition-duration: 300ms;
+           transition-property: transform, box-shadow;
+           transition-timing-function: ease-out;
+           transform: rotate3d(0);
+
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           flex-wrap: wrap;
+           gap: 5px;
+           overflow: scroll;
+           scrollbar-width: none;
+
+           cursor: pointer;
+         }
+
+         .card:hover {
+           transition-duration: 150ms;
+           box-shadow: 0 5px 20px 5px #00000044;
+         }
+
+
+         #logix {
+           width: 60vw;
+           
+           
+         }
+
+         p {
+           text-align: center;
+           font-weight: 200;
+         }
+
+         span {
+           color: hsl(10, 30%, 66%);
+           font-weight: 400;
+           
+         }
+
+         h1 {
+           font-size: 3rem;
+           padding: 0;
+           margin: 0;
+           font-weight: 400;
+           margin-top: 0.15rem;
+           margin-left: 1rem;
+           text-align: center;
+         }
+         
+         a {
+           font-size: 1.5rem;
+           color: #000;
+           text-decoration: none;
+           flex-basis: 100%;
+           text-align: center;
+
+           font-weight: 500;
+         }
+
+         img {
+           height: 30vmin;
+         }
         </style>
     </head>
 
     <body>
-        <a href="https://dpbarry.github.io/logix/"> LOGIX </a>
-        <br>
-        <a href="https://dpbarry.github.io/translateASL/"> translateASL </a>
+        <h1> Dean Barry </h1>
+
+        <div id="about">
+            <p> <i>2nd year student at McGill University in Software Engineering & Linguistics.</i></p>
+        </div>
+        <div id="projects">
+            <div class="card" id="logix">
+                <p>                <a href="https://dpbarry.github.io/logix/"> Logix, </a>
+                    a robust puzzle web app emphasizing lean and reactive design. </p>
+                <img src="assets/logix_homepage.png">
+                <img src="assets/logix_inlevel.png">
+
+            </div>
+            <div class="card" id="asl">
+                <p>                <a href="https://dpbarry.github.io/translateASL/"> translateASL,</a>
+                    a Speech–ASL translator. <br> <span>1st place</span> at MAIS Hacks 2025. </p>
+                <img src="assets/translateASL.png">
+
+            </div>
+        </div>
+
+        <div id="links">
+           
+        </div>
     </body>
+
+    <script>
+
+     const cards = document.querySelectorAll('.card');
+     let bounds;
+
+     function rotateToMouse(e) {
+       let card = e.target.closest(".card");
+       if (!card) return;
+       const mouseX = e.clientX;
+       const mouseY = e.clientY;
+       const leftX = mouseX - bounds.x;
+       const topY = mouseY - bounds.y;
+       const center = {
+         x: leftX - bounds.width / 2,
+         y: topY - bounds.height / 2
+       }
+       const distance = Math.sqrt(center.x**2 + center.y**2);
+       
+       card.style.transform = `
+        scale3d(1.07, 1.07, 1.07)
+        rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance)* 2}deg
+        )
+       `;
+       
+       card.style.backgroundImage = `
+        radial-gradient(
+        circle at
+        ${center.x * 2 + bounds.width/2}px
+        ${center.y * 2 + bounds.height/2}px,
+        #ffffff01,
+        #0000000f
+        )
+       `;
+     }
+
+     cards.forEach(c => {
+       c.addEventListener('mouseenter', () => {
+         bounds = c.getBoundingClientRect();
+         document.addEventListener('mousemove', rotateToMouse);
+       });
+        c.addEventListener('mouseleave', () => {
+         document.removeEventListener('mousemove', rotateToMouse);
+         c.style.transform = '';
+         c.style.background = '';
+        });
+
+       c.addEventListener("click", () => {
+         c.querySelector("a").click();
+       });
+     });
+
+    
+    </script>
 </html>
