@@ -11,17 +11,22 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Frank+Ruhl+Libre:wght@300..900&family=Unbounded:wght@900&display=swap" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
 
-        
         <style>
          html, body { padding: 0;}
          body {
-           font-family: Fraunces;
+           font-family: 'Bitter';
            font-size: clamp(1rem, 2.8vmax, 1.5rem);
+
+         }
+
+         #projectssection {
+           display: flex;
+           top: 10vh;
+           position: relative;
          }
 
          #projects {
@@ -29,32 +34,32 @@
            width: 100%;
            justify-content: center;
            flex-wrap: wrap;
-           gap: 4vmax;
+           gap: 2vw;
 
            position: relative;
-           top: 5vh;
+           flex-direction: row;
+           flex-wrap: wrap;
+           align-items: center;
          }
          
          .card {
-           min-width: 40vw;
-           max-width: 40vw;
-           max-height: 60vh;
-           min-height: 60vh;
+
            display: flex;
            position: relative;
            border: 1px solid #bbb;
-           box-shadow: 0 1px 5px #00000022;
-           
+           box-shadow: 0 1px 5px #00000022, 0 0 8px #00000015;
+
+           object-fit: cover;
+           width: auto;
+           min-height: min(46vh, 24vw);
+           max-height: min(46vh, 24vw);
            border-radius: 5px;
            transform-style: preserve-3d;
-           background-color: #eee;
 
-           perspective: 1000px;
-
+           filter: brightness(0.91);
            transition-duration: 300ms;
            transition-property: transform, box-shadow;
            transition-timing-function: ease-out;
-           transform: rotate3d(0);
 
            display: flex;
            flex-direction: row;
@@ -64,55 +69,97 @@
            overflow: scroll;
            scrollbar-width: none;
 
+           position: relative;
            cursor: pointer;
+
          }
 
          .card:hover {
            transition-duration: 150ms;
            box-shadow: 0 5px 20px 5px #00000044;
          }
-
-
-         #logix {
-           width: 60vw;
-           
-           
+         
+    
+         .wrap {
+           display: flex;
+           flex-direction: row;
+           align-content: flex-start;
+           perspective: 1500px;
+           justify-content: center;
+           gap: 2vmin;
+           position: relative;
          }
+
+         
 
          p {
            text-align: center;
-           font-weight: 200;
+           font-weight: 350;
+           margin: 0;
          }
 
          span {
-           color: hsl(10, 30%, 66%);
+           color: hsl(30, 50%, 50%);
            font-weight: 400;
-           
          }
 
          h1 {
            font-size: 3rem;
            padding: 0;
            margin: 0;
-           font-weight: 400;
+           font-weight: 590;
            margin-top: 0.15rem;
            margin-left: 1rem;
            text-align: center;
+           font-family: Bitter;
          }
-         
-         a {
-           font-size: 1.5rem;
+         h2 {
+           writing-mode: sideways-lr;
+           width: min-content;
+           margin: 0;
+           text-align: center;
+           font-size: 5vh;
+           padding-left: 1.25vw;
+           color: #333;
+           border-right: 2px solid #333;
+           box-shadow: 0px 0px 10px #aaa;
+           clip-path: inset(3px -15px 3px 3px);
+         }
+
+         aside {
+           position: absolute;
+           bottom: -25px;
+           font-size: 1rem;
            color: #000;
            text-decoration: none;
-           flex-basis: 100%;
            text-align: center;
-
+           flex-basis: 100%;
+           font-weight: 500;
+         }
+         
+         
+         a {
+           position: absolute;
+           top: -38px;
+           font-size: 1.8rem;
+           color: #000;
+           text-decoration: none;
+           text-align: center;
+           flex-basis: 100%;
            font-weight: 500;
          }
 
-         img {
-           height: 30vmin;
+         @media (orientation: portrait) {
+           #projects {
+             flex-direction: column;
+             gap: 8vh;
+           }
+           .card {
+             min-height: min(27vh, 35vw);
+             max-height: min(27vh, 35vw);
+           }
          }
+
         </style>
     </head>
 
@@ -122,24 +169,31 @@
         <div id="about">
             <p> <i>2nd year student at McGill University in Software Engineering & Linguistics.</i></p>
         </div>
-        <div id="projects">
-            <div class="card" id="logix">
-                <p>                <a href="https://dpbarry.github.io/logix/"> Logix, </a>
-                    a robust puzzle web app emphasizing lean and reactive design. </p>
-                <img src="assets/logix_homepage.png">
-                <img src="assets/logix_inlevel.png">
+        <div id="projectssection">
+            <h2 id="proj-label"> PROJECTS </h2>
 
-            </div>
-            <div class="card" id="asl">
-                <p>                <a href="https://dpbarry.github.io/translateASL/"> translateASL,</a>
-                    a Speech–ASL translator. <br> <span>1st place</span> at MAIS Hacks 2025. </p>
-                <img src="assets/translateASL.png">
+            <div id="projects">
+                <div class="wrap">
+                    <a href="https://dpbarry.github.io/logix/"> Puzzle web app</a>
+                    
+                    <img id="logix1" class="card"  src="assets/logix_homepage.png">
+                    <img id="logix2" class="card"  src="assets/logix_inlevel.png">
 
+                </div>
+
+                <div class="wrap">
+                    <a href="https://dpbarry.github.io/translateASL/">
+                        ASL ↔ Speech  </a>
+                    <img id="asl" class="card" src="assets/translateASL.png">
+
+                    <aside> *won <span>1st place</span> at MAIS Hacks 2025. </aside>
+
+                </div>
             </div>
         </div>
 
         <div id="links">
-           
+            
         </div>
     </body>
 
@@ -162,7 +216,7 @@
        const distance = Math.sqrt(center.x**2 + center.y**2);
        
        card.style.transform = `
-        scale3d(1.07, 1.07, 1.07)
+        scale3d(1.03, 1.03, 1.03)
         rotate3d(
         ${center.y / 100},
         ${-center.x / 100},
@@ -171,15 +225,6 @@
         )
        `;
        
-       card.style.backgroundImage = `
-        radial-gradient(
-        circle at
-        ${center.x * 2 + bounds.width/2}px
-        ${center.y * 2 + bounds.height/2}px,
-        #ffffff01,
-        #0000000f
-        )
-       `;
      }
 
      cards.forEach(c => {
@@ -187,17 +232,17 @@
          bounds = c.getBoundingClientRect();
          document.addEventListener('mousemove', rotateToMouse);
        });
-        c.addEventListener('mouseleave', () => {
+       c.addEventListener('mouseleave', () => {
          document.removeEventListener('mousemove', rotateToMouse);
          c.style.transform = '';
          c.style.background = '';
-        });
+       });
 
        c.addEventListener("click", () => {
-         c.querySelector("a").click();
+         c.parentNode.querySelector("a").click();
        });
      });
 
-    
+     
     </script>
 </html>
