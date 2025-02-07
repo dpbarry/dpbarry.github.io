@@ -12,21 +12,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Frank+Ruhl+Libre:wght@300..900&family=Unbounded:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
 
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
 
         <style>
-         html, body { padding: 0;}
+         html, body { padding: 0; height: 100vh;}
          body {
-           font-family: 'Bitter';
+           font-family: 'fraunces';
            font-size: clamp(1rem, 2.8vmax, 1.5rem);
+           display: flex;
+           flex-direction: column;
+           overflow-x: hidden;
+         }
 
+         
+         #mainsections {
+           display: flex;
+           flex-direction: column;
+           height: 100%;
          }
 
          #projectssection {
            display: flex;
-           top: 10vh;
            position: relative;
+           margin-bottom: 5vh;
+           flex-grow: 0.5;
          }
 
          #projects {
@@ -58,7 +70,7 @@
 
            filter: brightness(0.91);
            transition-duration: 300ms;
-           transition-property: transform, box-shadow;
+           transition-property: transform, box-shadow, filter;
            transition-timing-function: ease-out;
 
            display: flex;
@@ -71,15 +83,15 @@
 
            position: relative;
            cursor: pointer;
-
+           backface-visibility: none;
          }
-
+         
          .card:hover {
            transition-duration: 150ms;
            box-shadow: 0 5px 20px 5px #00000044;
          }
          
-    
+         
          .wrap {
            display: flex;
            flex-direction: row;
@@ -94,8 +106,13 @@
 
          p {
            text-align: center;
-           font-weight: 350;
+           font-weight: 275;
+           font-size: clamp(0.5rem, 2vmax, 1.56rem);
+           font-family: Fraunces;
            margin: 0;
+           margin-bottom: 6vmax;
+           white-space: nowrap;
+           
          }
 
          span {
@@ -107,15 +124,15 @@
            font-size: 3rem;
            padding: 0;
            margin: 0;
-           font-weight: 590;
-           margin-top: 0.15rem;
+           font-weight: 600;
            margin-left: 1rem;
            text-align: center;
-           font-family: Bitter;
+           font-family: fraunces;
          }
-         h2 {
+         .label {
            writing-mode: sideways-lr;
            width: min-content;
+           font-weight: 700;
            margin: 0;
            text-align: center;
            font-size: 5vh;
@@ -123,7 +140,7 @@
            color: #333;
            border-right: 2px solid #333;
            box-shadow: 0px 0px 10px #aaa;
-           clip-path: inset(3px -15px 3px 3px);
+           clip-path: inset(3px -10px 3px 3px);
          }
 
          aside {
@@ -135,18 +152,55 @@
            text-align: center;
            flex-basis: 100%;
            font-weight: 500;
+           white-space: nowrap;
+           font-style: italic;
          }
          
          
-         a {
+         .wrap a {
            position: absolute;
-           top: -38px;
+           top: -43px;
            font-size: 1.8rem;
            color: #000;
            text-decoration: none;
            text-align: center;
            flex-basis: 100%;
-           font-weight: 500;
+           font-weight: 600;
+         }
+
+         #linkssection {
+           display: flex;
+           flex-grow: 0.3;
+           gap: 30px;
+         }
+
+         #links {
+           display:  flex;
+           flex-direction: column;
+           gap: 4px;
+           height: 95%;
+
+           a {
+             height: 100%;
+             cursor: pointer;
+             border: 0;
+             background-color: transparent;
+             background-size: 100% 100%;
+           }
+
+           #github {
+             background-image: url("assets/github.svg");
+             width: 40px;  
+           }
+           #linkedin {
+             background-image: url("assets/linkedin.svg");
+             width: 40px;  
+           }
+           #resume {
+             background-image: url("assets/resume.svg");
+             width: 40px;  
+           }
+           
          }
 
          @media (orientation: portrait) {
@@ -155,8 +209,8 @@
              gap: 8vh;
            }
            .card {
-             min-height: min(27vh, 35vw);
-             max-height: min(27vh, 35vw);
+             min-height: min(25vh, 32vw);
+             max-height: min(25vh, 32vw);
            }
          }
 
@@ -169,31 +223,38 @@
         <div id="about">
             <p> <i>2nd year student at McGill University in Software Engineering & Linguistics.</i></p>
         </div>
-        <div id="projectssection">
-            <h2 id="proj-label"> PROJECTS </h2>
+        <div id="mainsections">
+            <div id="projectssection">
+                <h2 id="proj-label" class="label"> PROJECTS </h2>
 
-            <div id="projects">
-                <div class="wrap">
-                    <a href="https://dpbarry.github.io/logix/"> Puzzle web app</a>
-                    
-                    <img id="logix1" class="card"  src="assets/logix_homepage.png">
-                    <img id="logix2" class="card"  src="assets/logix_inlevel.png">
+                <div id="projects">
+                    <div class="wrap">
+                        <a href="https://dpbarry.github.io/logix/"> Puzzle Webapp</a>
+                        
+                        <img id="logix1" class="card"  src="assets/logix_homepage.png">
+                        <img id="logix2" class="card"  src="assets/logix_inlevel.png">
 
-                </div>
+                    </div>
 
-                <div class="wrap">
-                    <a href="https://dpbarry.github.io/translateASL/">
-                        ASL ↔ Speech  </a>
-                    <img id="asl" class="card" src="assets/translateASL.png">
+                    <div class="wrap">
+                        <a href="https://dpbarry.github.io/translateASL/">
+                            ASL ↔ Speech  </a>
+                        <img id="asl" class="card" src="assets/translateASL.png">
 
-                    <aside> *won <span>1st place</span> at MAIS Hacks 2025. </aside>
+                        <aside> won <span>1st place</span> at MAIS Hacks 2025 </aside>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="links">
-            
+            <div id="linkssection">
+                <h2 id="links-label" class="label"> LINKS </h2>
+                <div id="links">
+                    <a id="github" href="https://github.com/dpbarry"></button>
+                    <a id="linkedin" href="https://www.linkedin.com/in/dean-barry-34a787274/"></button>
+                    <a id="resume" href="assets/resume.pdf"></button>
+                </div>
+            </div>
         </div>
     </body>
 
