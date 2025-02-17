@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
 
         <style>
-         html, body { padding: 0; height: 100vh;}
+         html, body { padding: 0; height: 100vh; margin: 0;}
          body {
            font-family: 'fraunces';
            font-size: clamp(1rem, 2.8vmax, 1.5rem);
@@ -107,10 +107,10 @@
          p {
            text-align: center;
            font-weight: 275;
-           font-size: clamp(0.5rem, 2vmax, 1.56rem);
+           font-size: clamp(0.85rem, 3vw, 1.56rem);
            font-family: Fraunces;
            margin: 0;
-           margin-bottom: 6vmax;
+           margin-bottom: max(2.5rem, 6vw);
            white-space: nowrap;
            
          }
@@ -166,6 +166,7 @@
            text-align: center;
            flex-basis: 100%;
            font-weight: 600;
+           white-space: nowrap;
          }
 
          #linkssection {
@@ -186,6 +187,9 @@
              border: 0;
              background-color: transparent;
              background-size: 100% 100%;
+             transition: opacity 0.14s;
+             opacity: 1;
+             &:hover {opacity: 0.75;}
            }
 
            #github {
