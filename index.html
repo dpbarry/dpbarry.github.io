@@ -161,9 +161,6 @@
             0 4px 10px rgba(21, 14, 7, 0.05);
         }
 
-        .wrap.single-image {
-          max-height: fit-content;
-        }
 
          .wrap > a {
           font-size: 0.93rem;
@@ -203,8 +200,12 @@
         .card-container {
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
           gap: 0.9rem;
           position: relative;
+          flex: 1;
+          min-height: 0;
           z-index: 1;
         }
 
@@ -315,7 +316,7 @@
 
                   <div class="wrap single-image">
                     <a href="https://dpbarry.github.io/fantasy-fantasy/">Fantasy Fantasy</a>
-                    <p class="caption">WIP simulation game. Built upon a robust OOP bedrock to support complicated concurrent systems of progression.</p>
+                    <p class="caption">WIP simulation game. Built upon a robust OOP bedrock to support complex concurrent systems of progression.</p>
                     <div class="card-container">
                         <img id="fantasy" class="card" src="assets/FantasyFantasy.png" alt="Fantasy Fantasy">
                     </div>
