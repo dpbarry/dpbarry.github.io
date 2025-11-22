@@ -18,299 +18,321 @@
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
 
         <style>
-         html, body { padding: 0; height: 100vh; margin: 0;}
-
+         html, body { 
+           padding: 0; 
+           margin: 0;
+           min-height: 100vh;
+           box-sizing: border-box;
+         }
+         
+         *, *::before, *::after {
+           box-sizing: inherit;
+         }
          
          body {
-           font-family: 'fraunces';
-           font-size: clamp(1rem, 2.8vmax, 1.5rem);
+           font-family: 'Fraunces', serif;
+           font-size: 0.95rem;
+           line-height: 1.5;
+           color: #222;
            display: flex;
            flex-direction: column;
            overflow-x: hidden;
+           background-color: #f7f4ee;
          }
-         
 
-         
-         #mainsections {
+         /* Header Section */
+         header {
+           position: relative;
+           padding: 1.25rem 2rem 1rem;
+           background-color: #fff;
+           border-bottom: 1px solid #e4dfd6;
+           box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+         }
+
+         #identity {
            display: flex;
            flex-direction: column;
-           height: 100%;
-         }
-
-         #projectssection {
-           display: flex;
-           position: relative;
-           margin-bottom: 5vh;
-           flex-grow: 0.5;
-         }
-
-         #projects {
-           display: flex;
-           width: 100%;
-           justify-content: center;
-           flex-wrap: wrap;
-           gap: 2vw;
-
-           position: relative;
-           flex-direction: row;
-           flex-wrap: wrap;
-           align-items: center;
-         }
-         
-         .card {
-
-           display: flex;
-           position: relative;
-           border: 1px solid #bbb;
-           box-shadow: 0 1px 5px #00000022, 0 0 8px #00000015;
-
-           object-fit: cover;
-           width: auto;
-           min-height: min(46vh, 24vw);
-           max-height: min(46vh, 24vw);
-           border-radius: 5px;
-           transform-style: preserve-3d;
-
-           filter: brightness(0.95);
-           transition-duration: 300ms;
-           transition-property: transform, box-shadow, filter;
-           transition-timing-function: ease-out;
-
-           display: flex;
-           flex-direction: row;
-           justify-content: center;
-           flex-wrap: wrap;
-           gap: 5px;
-           overflow: scroll;
-           scrollbar-width: none;
-
-           position: relative;
-           cursor: pointer;
-           backface-visibility: none;
-         }
-         
-         .card:hover {
-           transition-duration: 150ms;
-           box-shadow: 0 5px 20px 5px #00000044;
-         }
-         
-         
-         .wrap {
-           display: flex;
-           flex-direction: row;
-           align-content: flex-start;
-           perspective: 1500px;
-           justify-content: center;
-           gap: 2vmin;
-           position: relative;
-         }
-
-         
-
-         p {
-           text-align: center;
-           font-weight: 275;
-           font-size: clamp(0.85rem, 3vw, 1.56rem);
-           font-family: Fraunces;
-           margin: 0;
-           margin-bottom: max(2.5rem, 6vw);
-           white-space: nowrap;
-           
-         }
-
-         span {
-           color: hsl(30, 50%, 50%);
-           font-weight: 400;
          }
 
          h1 {
-           font-size: 3rem;
+           font-size: 1.9rem;
            padding: 0;
            margin: 0;
            font-weight: 600;
-           margin-left: 1rem;
-           text-align: center;
            font-family: fraunces;
+           color: #222;
+           line-height: 1.2;
          }
-         .label {
-           writing-mode: sideways-lr;
-           width: min-content;
-           font-weight: 700;
+
+         .tagline {
            margin: 0;
-           text-align: center;
-           font-size: 5vh;
-           padding-left: 1.25vw;
-           color: #333;
-           border-right: 2px solid #333;
-           box-shadow: 0px 0px 10px #aaa;
-           clip-path: inset(3px -10px 3px 3px);
-         }
-
-         aside {
-           position: absolute;
-           bottom: -25px;
-           font-size: 1rem;
-           color: #000;
-           text-decoration: none;
-           text-align: center;
-           flex-basis: 100%;
-           font-weight: 500;
-           white-space: nowrap;
-           font-style: italic;
-         }
-         
-         
-         .wrap a {
-           position: absolute;
-           top: -43px;
-           font-size: 1.8rem;
-           color: #000;
-           text-decoration: none;
-           text-align: center;
-           flex-basis: 100%;
-           font-weight: 600;
-           white-space: nowrap;
-         }
-
-         #linkssection {
-           display: flex;
-           flex-grow: 0.3;
-           gap: 30px;
+           color: #67625b;
+           font-size: 0.95rem;
+           font-weight: 300;
          }
 
          #links {
-           display:  flex;
-           flex-direction: column;
-           gap: 4px;
-           height: 95%;
-
-           a {
-             height: 100%;
-             cursor: pointer;
-             border: 0;
-             background-color: transparent;
-             background-size: 100% 100%;
-             transition: opacity 0.14s;
-             opacity: 1;
-             &:hover {opacity: 0.75;}
-           }
-
-           #github {
-             background-image: url("assets/github.svg");
-             width: 40px;  
-           }
-           #linkedin {
-             background-image: url("assets/linkedin.svg");
-             width: 40px;  
-           }
-           #resume {
-             background-image: url("assets/resume.svg");
-             width: 40px;  
-           }
-           
+           position: absolute;
+           top: calc(1.25rem + (1.9rem * 1.2 - 26px) / 2);
+           right: 2rem;
+           display: flex;
+           gap: 10px;
+           align-items: center;
          }
 
-         @media (orientation: portrait) {
-           #projects {
-             flex-direction: column;
-             gap: 8vh;
+         #links a {
+           width: 26px;
+           height: 26px;
+           cursor: pointer;
+           border: 0;
+           background-color: transparent;
+           background-size: 100% 100%;
+           transition: opacity 0.14s, transform 0.14s;
+           opacity: 0.75;
+         }
+
+         #links a:hover {
+           opacity: 1;
+           transform: scale(1.05);
+         }
+
+         #github {
+           background-image: url("assets/github.svg");
+         }
+         #linkedin {
+           background-image: url("assets/linkedin.svg");
+         }
+         #resume {
+           background-image: url("assets/resume.svg");
+         }
+
+         /* Main Content */
+         main {
+           padding: 1.5rem 2rem 2.5rem;
+           max-width: 1100px;
+           margin: 0 auto;
+           width: 100%;
+         }
+
+        #projectssection {
+          margin: 0;
+          padding: clamp(1rem, 4vw, 2.25rem) 0 0;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        #projects {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: clamp(1rem, 2vw, 1.75rem);
+          align-items: stretch;
+        }
+
+        .wrap {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          background: #fffdf8;
+          border: 1px solid rgba(213, 198, 178, 0.8);
+          border-radius: 10px;
+          box-shadow:
+            0 8px 16px rgba(21, 14, 7, 0.06),
+            0 2px 6px rgba(21, 14, 7, 0.04);
+          padding: clamp(1rem, 2vw, 1.35rem) clamp(1rem, 2.4vw, 1.6rem);
+          position: relative;
+          transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .wrap::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 22px;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+          pointer-events: none;
+        }
+
+        .wrap:hover {
+          transform: translateY(-6px);
+          border-color: rgba(180, 160, 135, 0.95);
+          box-shadow:
+            0 12px 20px rgba(21, 14, 7, 0.08),
+            0 4px 10px rgba(21, 14, 7, 0.05);
+        }
+
+        .wrap.single-image {
+          max-height: fit-content;
+        }
+
+         .wrap > a {
+          font-size: 0.93rem;
+          color: #23160a;
+          text-decoration: none;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.5rem;
+          padding-bottom: 0.55rem;
+          border-bottom: 1px solid rgba(57, 40, 16, 0.12);
+          margin: 0;
+          pointer-events: auto;
+         }
+
+        .wrap > a::after {
+          content: "↗";
+          font-size: 1.1rem;
+          transition: transform 0.25s ease;
+        }
+
+        .wrap:hover > a::after {
+          transform: translateX(4px);
+        }
+
+        .caption {
+          font-size: 0.9rem;
+          color: #43392d;
+          line-height: 1.55;
+          font-weight: 400;
+          margin: 0.35rem 0 0.55rem;
+        }
+
+        .card-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+          position: relative;
+          z-index: 1;
+        }
+
+         .card {
+           width: 100%;
+           max-width: 100%;
+           height: auto;
+           border: none;
+           object-fit: contain;
+           cursor: pointer;
+           transition: filter 0.2s ease, transform 0.2s ease;
+           filter: brightness(0.98);
+           background-color: transparent;
+           padding: 0;
+           border-radius: 2px;
+           box-shadow:
+             0 8px 14px rgba(16, 10, 5, 0.08),
+             0 2px 4px rgba(16, 10, 5, 0.05);
+           display: block;
+           background-color: #fff;
+         }
+
+
+         
+         .card:hover {
+           transform: translateY(-1px);
+         }
+
+         span {
+           color: hsl(30, 60%, 45%);
+           font-weight: 500;
+         }
+
+         @media (max-width: 768px) {
+           header {
+             padding: 1rem 1.25rem;
            }
-           .card {
-             min-height: min(25vh, 32vw);
-             max-height: min(25vh, 32vw);
+
+           #links {
+             top: 1rem;
+             right: 1.25rem;
            }
+
+           h1 {
+             font-size: 1.55rem;
+           }
+
+           main {
+             padding: 1.25rem;
+           }
+
+          .wrap {
+            padding: 1rem 1.1rem;
+          }
+        }
+
+
+        @media (max-width: 520px) {
+          body {
+            font-size: 0.9rem;
+          }
+
+          #projectssection {
+            padding-top: 1.5rem;
+          }
+
+          .wrap > a {
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+          }
          }
 
         </style>
     </head>
 
     <body>
-        <h1> Dean Barry </h1>
+        <header>
+            <div id="identity">
+                <h1>Dean Barry</h1>
+                <p class="tagline">3rd year student at McGill University in Software Engineering & Linguistics.</p>
+            </div>
+            <div id="links">
+                <a id="github" href="https://github.com/dpbarry" title="GitHub"></a>
+                <a id="linkedin" href="https://www.linkedin.com/in/dean-barry-34a787274/" title="LinkedIn"></a>
+                <a id="resume" href="assets/resume.pdf" title="Resume"></a>
+            </div>
+        </header>
 
-        <div id="about">
-            <p> <i>3rd year student at McGill University in Software Engineering & Linguistics.</i></p>
-        </div>
-        <div id="mainsections">
+        <main>
             <div id="projectssection">
-                <h2 id="proj-label" class="label"> PROJECTS </h2>
-
+              
                 <div id="projects">
-                    <div class="wrap">
-                        <a href="https://dpbarry.github.io/logix/"> Puzzle Webapp</a>
-                        
-                        <img id="logix1" class="card"  src="assets/logix_homepage.png">
-                        <img id="logix2" class="card"  src="assets/logix_inlevel.png">
-
+                  <div class="wrap single-image">
+                    <a href="https://dpbarry.github.io/logix/">Logix</a>
+                    <p class="caption">Mathematical logic puzzle web app. Combining minimalistic design with maxamilistic QoL.</p>
+                    <div class="card-container">
+                        <img id="logix1" class="card" src="assets/logix_homepage.png" alt="Logix homepage">
                     </div>
+                  </div>
 
-                    <div class="wrap">
-                        <a href="https://dpbarry.github.io/translateASL/">
-                            ASL ↔ Speech  </a>
-                        <img id="asl" class="card" src="assets/translateASL.png">
-
-                        <aside> won <span>1st place</span> at MAIS Hacks 2025 </aside>
-
+                  <div class="wrap single-image">
+                    <a href="https://dpbarry.github.io/translateASL/">TranslateASL</a>
+                    <p class="caption">Bidirectional converter between speech and ASL finger signs. Won <span>1st place</span> at MAIS Hacks 2025.</p>
+                    <div class="card-container">
+                        <img id="asl" class="card" src="assets/translateASL.png" alt="ASL Translation">
                     </div>
+                  </div>
+
+                  <div class="wrap single-image">
+                    <a href="https://dpbarry.github.io/fantasy-fantasy/">Fantasy Fantasy</a>
+                    <p class="caption">WIP simulation game. Built upon a robust OOP bedrock to support complicated concurrent systems of progression.</p>
+                    <div class="card-container">
+                        <img id="fantasy" class="card" src="assets/FantasyFantasy.png" alt="Fantasy Fantasy">
+                    </div>
+                  </div>
                 </div>
             </div>
-
-            <div id="linkssection">
-                <h2 id="links-label" class="label"> LINKS </h2>
-                <div id="links">
-                    <a id="github" href="https://github.com/dpbarry"></button>
-                    <a id="linkedin" href="https://www.linkedin.com/in/dean-barry-34a787274/"></button>
-                    <a id="resume" href="assets/resume.pdf"></button>
-                </div>
-            </div>
-        </div>
+        </main>
     </body>
 
     <script>
-
      const cards = document.querySelectorAll('.card');
-     let bounds;
-
-     function rotateToMouse(e) {
-       let card = e.target.closest(".card");
-       if (!card) return;
-       const mouseX = e.clientX;
-       const mouseY = e.clientY;
-       const leftX = mouseX - bounds.x;
-       const topY = mouseY - bounds.y;
-       const center = {
-         x: leftX - bounds.width / 2,
-         y: topY - bounds.height / 2
-       }
-       const distance = Math.sqrt(center.x**2 + center.y**2);
-       
-       card.style.transform = `
-        scale3d(1.03, 1.03, 1.03)
-        rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance)* 2}deg
-        )
-       `;
-       
-     }
 
      cards.forEach(c => {
-       c.addEventListener('mouseenter', () => {
-         bounds = c.getBoundingClientRect();
-         document.addEventListener('mousemove', rotateToMouse);
-       });
-       c.addEventListener('mouseleave', () => {
-         document.removeEventListener('mousemove', rotateToMouse);
-         c.style.transform = '';
-         c.style.background = '';
-       });
-
        c.addEventListener("click", () => {
-         c.parentNode.querySelector("a").click();
+         const link = c.closest(".wrap")?.querySelector("a");
+         if (link) link.click();
        });
      });
-
-     
     </script>
 </html>
