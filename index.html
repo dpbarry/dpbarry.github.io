@@ -6,7 +6,8 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1, interactive-widget=resizes-content">
-
+        <meta name="viewport" content="width=device-width,initial-scale=1, interactive-widget=resizes-content">
+    <link href="assets/Favicon.png" rel="icon" type="image/svg+xml">
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -142,6 +143,7 @@
           padding: clamp(1rem, 2vw, 1.35rem) clamp(1rem, 2.4vw, 1.6rem);
           position: relative;
           transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+          cursor: pointer;
         }
 
         .wrap::after {
@@ -321,17 +323,35 @@
                         <img id="fantasy" class="card" src="assets/FantasyFantasy.png" alt="Fantasy Fantasy">
                     </div>
                   </div>
+
+                  <div class="wrap single-image">
+                    <a href="https://dpbarry.github.io/rummigrams/">Rummigrams</a>
+                    <p class="caption">Spatial puzzle game inspired by Rummy and Bananagrams. Supports multiplayer using local raspberry pi server.</p>
+                    <div class="card-container">
+                        <img id="rummigrams" class="card" src="assets/rummigrams.png" alt="Rummigrams">
+                    </div>
+                  </div>
+
+                  <div class="wrap single-image">
+                    <a href="https://github.com/dpbarry/sustainify">Sustainify</a>
+                    <p class="caption">Browser extension for sustainable shopping. Analyzes product pages with multi-pronged AI workflow to break down its sustainability</p>
+                    <div class="card-container">
+                        <img id="sustainify" class="card" src="assets/sustainify.png" alt="Sustainify">
+                    </div>
+                  </div>
                 </div>
             </div>
         </main>
     </body>
 
     <script>
-     const cards = document.querySelectorAll('.card');
+     const wraps = document.querySelectorAll('.wrap');
 
-     cards.forEach(c => {
-       c.addEventListener("click", () => {
-         const link = c.closest(".wrap")?.querySelector("a");
+     wraps.forEach(wrap => {
+       wrap.addEventListener("click", (e) => {
+         // Don't trigger if clicking on the actual link
+         if (e.target.tagName === 'A') return;
+         const link = wrap.querySelector("a");
          if (link) link.click();
        });
      });
