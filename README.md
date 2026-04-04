@@ -1,1 +1,1 @@
-www.dpbarry.github.io/
+dpbarry.github.io/
