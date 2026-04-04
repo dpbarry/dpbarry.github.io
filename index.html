@@ -235,6 +235,34 @@
            transform: translateY(-1px);
          }
 
+        .extension-card .card-container {
+          align-items: center;
+        }
+
+        .extension-frame {
+          width: min(68%, 200px);
+          aspect-ratio: 16 / 9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 0.15rem;
+          padding: 0.3rem;
+          border-radius: 8px;
+          border: 1px solid rgba(188, 170, 145, 0.35);
+          background: transparent;
+        }
+
+        .extension-card .card {
+          width: auto;
+          height: 92%;
+          max-width: 92%;
+          max-height: 92%;
+          object-fit: contain;
+          box-shadow:
+            0 4px 8px rgba(16, 10, 5, 0.07),
+            0 1px 2px rgba(16, 10, 5, 0.05);
+        }
+
          span {
            color: hsl(30, 60%, 45%);
            font-weight: 500;
@@ -300,10 +328,10 @@
               
                 <div id="projects">
                   <div class="wrap single-image">
-                    <a href="https://dpbarry.github.io/logix/">Logix</a>
-                    <p class="caption">Mathematical logic puzzle web app. Combining minimalistic design with maxamilistic QoL.</p>
+                    <a href="https://dpbarry.github.io/BRIM-ExI/">Brim Intel</a>
+                    <p class="caption">Expense intelligence for SMBs. Many different tools. Powered by Claude API reasoning loops using D1 database and ApexChart tools, live hosted with Cloudflare web workers.</p>
                     <div class="card-container">
-                        <img id="logix" class="card" src="assets/logix.png" alt="Logix homepage">
+                        <img id="exi" class="card" src="assets/BrimIntel.png" alt="ExI — Expense Intelligence">
                     </div>
                   </div>
 
@@ -312,6 +340,14 @@
                     <p class="caption">Bidirectional converter between speech and ASL finger signs. Won <span>1st place</span> at MAIS Hacks 2025.</p>
                     <div class="card-container">
                         <img id="asl" class="card" src="assets/translateASL.png" alt="ASL Translation">
+                    </div>
+                  </div>
+                  
+                  <div class="wrap single-image">
+                    <a href="https://dpbarry.github.io/logix/">Logix</a>
+                    <p class="caption">Mathematical logic puzzle web app. Combining minimalistic design with maxamilistic QoL.</p>
+                    <div class="card-container">
+                        <img id="logix" class="card" src="assets/logix.png" alt="Logix homepage">
                     </div>
                   </div>
 
@@ -331,11 +367,13 @@
                     </div>
                   </div>
 
-                  <div class="wrap single-image">
+                  <div class="wrap single-image extension-card">
                     <a href="https://github.com/dpbarry/sustainify">Sustainify</a>
                     <p class="caption">Browser extension for sustainable shopping. Analyzes product pages with multi-pronged AI workflow to provide a comprehensive review of its sustainability</p>
                     <div class="card-container">
+                      <div class="extension-frame">
                         <img id="sustainify" class="card" src="assets/sustainify.png" alt="Sustainify">
+                      </div>
                     </div>
                   </div>
                 </div>
